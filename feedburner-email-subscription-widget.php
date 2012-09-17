@@ -131,6 +131,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 			</p>			
 			<p>
 				Please give rating to <a href="http://wordpress.org/extend/plugins/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a> and visit <a href="http://zourbuth.com/feedburner-email-subscription-widget/">zourbuth.com</a> for more informations.
+				<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br /><br />			
 			</p>
 			
 		</div>
@@ -141,11 +142,13 @@ class Feedburner_Email_Subscription extends WP_Widget {
 				$envato = new Envato_Marketplaces_Fes();
 				$envato->display_thumbs('zourbuth', 'codecanyon', 12);
 			?>
-			<p>Premium Plugin</p>
 			<p>
-				<a href="http://feedburner.google.com/fb/a/mailverify?uri=zourbuth&amp;loc=en_US">Subscribe to zourbuth by Email</a><br />
-				<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br /><br />
-				&copy; Copyright <a href="http://zourbuth.com">zourbuth</a> 2011.
+				<strong>Need Custom Code or Customization for lower cost?</strong><br />
+				Please feel free to send mail to <a href="mailto:zourbuth@gmail.com">zourbuth@gmail.com</a>
+			</p>
+			<p>
+				Subscribe to zourbuth by <a href="http://feedburner.google.com/fb/a/mailverify?uri=zourbuth&amp;loc=en_US">email</a><br />
+				<small>&copy; Copyright <a href="http://zourbuth.com">zourbuth</a> 2012</small>.
 			</p>
 		</div>
 		
