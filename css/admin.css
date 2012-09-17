@@ -48,6 +48,7 @@ li.market-item {
 	display: inline;
 }
 li.market-item img {
-	float: left;
-	border: 1px solid #C9C9C9;
+    float: left;
+    margin-bottom: 4px;
+    margin-right: 4px;
 }
