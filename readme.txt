@@ -22,12 +22,14 @@ Easy to customize, just put your feed name and your ready to lunch.
 <li>Widget intro and outro-text for your additional information, support HTML</li>
 </ul>
 
-For further reading:<br />
-<a href="http://zourbuth.com/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a>
-<a href="http://zourbuth.com/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a>
-<a href="http://zourbuth.com/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a>
+<h4>Further Reading</h4>
+<ul>
+<li><a href="http://zourbuth.com/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a></li>
+<li><a href="http://zourbuth.com/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a></li>
+<li><a href="http://zourbuth.com/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
+<li>Please read the FAQ under <a href="http://zourbuth.com/plugins/feedburner-email-subscription">http://zourbuth.com/plugins/feedburner-email-subscription</a></li>
+</ul>
 
-Please read the FAQ under <a href="http://zourbuth.com/plugins/feedburner-email-subscription">http://zourbuth.com/plugins/feedburner-email-subscription</a>
 
 == Installation ==
 
@@ -53,8 +55,8 @@ Please read the FAQ under http://zourbuth.com/feedburner-email-subscription-widg
 
 = 1.0 =
 * Released
+= 1.1 =
+* Updated to WP version 3.4.2
 
 == Upgrade Notice ==
-
-= 1.0 =
 Just upgrade via Wordpress.
