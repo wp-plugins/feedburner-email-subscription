@@ -1,9 +1,9 @@
 <?php
  /*
 	Plugin Name: Feedburner Email Subscription
-	Plugin URI: http://zourbuth.com/feedburner-email-subscription
+	Plugin URI: http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/
 	Description: Give your biggest fans another way to keep up with your content feed by placing a <a href="http://www.feedburner.com/" alt="Feedburner" title="Feedburner">Feedburner</a> email subscription widget on your site. This widget will follow your theme stylesheet.
-	Version: 1.1
+	Version: 1.2
 	Author: zourbuth
 	Author URI: http://zourbuth.com
 	License: Under GPL2

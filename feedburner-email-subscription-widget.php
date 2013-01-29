@@ -111,23 +111,23 @@ class Feedburner_Email_Subscription extends WP_Widget {
 
 		<div class="zframe-widget-controls columns-2">
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', $this->textdomain ); ?></label>
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', $this->textdomain ); ?></label>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'feed_title' ); ?>"><?php _e( 'Your Feedburner Title:', $this->textdomain ); ?></label>
+				<label for="<?php echo $this->get_field_id( 'feed_title' ); ?>"><?php _e( 'Your Feedburner Title', $this->textdomain ); ?></label>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'feed_title' ); ?>" name="<?php echo $this->get_field_name( 'feed_title' ); ?>" value="<?php echo esc_attr( $instance['feed_title'] ); ?>" />
-				<code>Example: zourbuth</code>
+				<span class="controlDesc"><?php _e('Example: zourbuth', $this->textdomain ); ?></span>
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'intro_text' ); ?>"><?php _e('Intro Text:', $this->textdomain ) ?></label><br />
+				<label for="<?php echo $this->get_field_id( 'intro_text' ); ?>"><?php _e('Intro Text', $this->textdomain ) ?></label><br />
 				<textarea name="<?php echo $this->get_field_name( 'intro_text' ); ?>" id="<?php echo $this->get_field_id( 'intro_text' ); ?>" rows="4" class="widefat"><?php echo htmlentities($instance['intro_text']); ?></textarea>
-				<code><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></code>
+				<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'outro_text' ); ?>"><?php _e('Outro Text:', $this->textdomain ) ?></label><br />
+				<label for="<?php echo $this->get_field_id( 'outro_text' ); ?>"><?php _e('Outro Text', $this->textdomain ) ?></label><br />
 				<textarea name="<?php echo $this->get_field_name( 'outro_text' ); ?>" id="<?php echo $this->get_field_id( 'outro_text' ); ?>" rows="4" class="widefat"><?php echo htmlentities($instance['outro_text']); ?></textarea>
-				<code><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></code>
+				<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
 			</p>			
 			<p>
 				Please give rating to <a href="http://wordpress.org/extend/plugins/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a> and visit <a href="http://zourbuth.com/feedburner-email-subscription-widget/">zourbuth.com</a> for more informations.

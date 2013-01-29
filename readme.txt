@@ -1,10 +1,10 @@
 === Feedburner Email Subscription ===
 Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
-Tags: subscription, widget, email, feedburner, feed, shortcode
-Requires at least: 3.1
-Tested up to: 3.2
-Stable tag: 1.1
+Tags: subscription, widget, email, feedburner, feed, shortcode, rss
+Requires at least: 3.5
+Tested up to: 3.0
+Stable tag: 1.2
 
 Give your biggest fans another way to keep up with your content feed by placing an feedburner email subscription on your site.
 
@@ -24,10 +24,10 @@ Easy to customize, just put your feed name and your ready to lunch.
 
 <h4>Further Reading</h4>
 <ul>
-<li><a href="http://zourbuth.com/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a></li>
-<li><a href="http://zourbuth.com/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a></li>
-<li><a href="http://zourbuth.com/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
-<li>Please read the FAQ under <a href="http://zourbuth.com/plugins/feedburner-email-subscription">http://zourbuth.com/plugins/feedburner-email-subscription</a></li>
+<li><a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a></li>
+<li><a href="http://zourbuth.com/archives/521/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a></li>
+<li><a href="http://zourbuth.com/archives/615/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
+<li>Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a> plugin site.</li>
 </ul>
 
 
@@ -40,11 +40,12 @@ You can use the built in installer and upgrader, or you can install the plugin m
 == Frequently Asked Questions ==
 
 = A question that someone might have =
-
-Please read the FAQ under http://zourbuth.com/feedburner-email-subscription-widget
-<a href="http://zourbuth.com/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a>
-<a href="http://zourbuth.com/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a>
-<a href="http://zourbuth.com/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a>
+Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a> plugin site.
+<ul>
+<li><a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a></li>
+<li><a href="http://zourbuth.com/archives/521/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a></li>
+<li><a href="http://zourbuth.com/archives/615/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
+</ul>
 
 == Screenshots ==
 

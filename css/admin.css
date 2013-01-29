@@ -18,8 +18,15 @@
 	}
 
 .zframe-widget-controls label{
-	font-size: 11px;
+	font-size: 12px;
+	font-weight: bold;
 	}
+.zframe-widget-controls .controlDesc {
+    font-size: 11.25px;
+	display: block;
+	color: #888;
+	margin-bottom: 4px;
+}	
 .columns-2 input.widefat, .columns-2 select.widefat {
 	width: 99%;
 	}
