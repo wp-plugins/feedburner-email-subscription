@@ -112,6 +112,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		<div class="zframe-widget-controls columns-2">
 			<p>
 				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', $this->textdomain ); ?></label>
+				<span class="controlDesc"><?php _e('Give the widget a title, leave empty for no title.', $this->textdomain ); ?></span>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 			</p>
 			<p>
@@ -130,7 +131,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 				<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
 			</p>			
 			<p>
-				Please give rating to <a href="http://wordpress.org/extend/plugins/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a> and visit <a href="http://zourbuth.com/feedburner-email-subscription-widget/">zourbuth.com</a> for more informations.
+				Please give rating to <a href="http://wordpress.org/extend/plugins/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a> and visit <a href="http://zourbuth.com/feedburner-email-subscription-widget/">zourbuth.com</a> for more informations.<br />
 				<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br /><br />			
 			</p>
 			
@@ -148,7 +149,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 			</p>
 			<p>
 				Subscribe to zourbuth by <a href="http://feedburner.google.com/fb/a/mailverify?uri=zourbuth&amp;loc=en_US">email</a><br />
-				<small>&copy; Copyright <a href="http://zourbuth.com">zourbuth</a> 2012</small>.
+				<small>&copy; Copyright <a href="http://zourbuth.com">zourbuth</a> <?php echo date('Y'); ?></small>.
 			</p>
 		</div>
 		

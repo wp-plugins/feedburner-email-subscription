@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: subscription, widget, email, feedburner, feed, shortcode, rss
 Requires at least: 3.5
 Tested up to: 3.0
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 Give your biggest fans another way to keep up with your content feed by placing an feedburner email subscription on your site.
 
