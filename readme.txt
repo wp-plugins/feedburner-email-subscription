@@ -4,14 +4,15 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: subscription, widget, email, feedburner, feed, shortcode, rss
 Requires at least: 3.5
 Tested up to: 3.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 Give your biggest fans another way to keep up with your content feed by placing an feedburner email subscription on your site.
 
 == Description ==
 
-Feedburner Email Subscription gives your biggest fans another way to keep up with your content feed by placing an email subscription on your site. 
-Easy to customize, just put your feed name and your ready to lunch.
+This plugin gives your biggest fans another way to keep up with your content feed by placing an email subscription form on your site.
+The email subscription uses the Feedburner RSS driven service to fetch your site content, and deliver it to your subscribers.
+Easy to use and customize, just put your Feedburner site name and you are ready to launch. Email content sent automatically by Feedburner.
 
 <h4>Key Features & Options</h4>
 <ul>
@@ -58,6 +59,14 @@ Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archive
 * Released
 = 1.1 =
 * Updated to WP version 3.4.2
+= 1.2 =
+* Updated to WP version 3.5
+= 1.2.1 =
+* Updated to WP version 3.5.1
+= 1.2.2 =
+* Styling the backend interface
+* Create widget slug for custom name
+* Default title for widget added
 
 == Upgrade Notice ==
 Just upgrade via Wordpress.

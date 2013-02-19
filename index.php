@@ -3,13 +3,11 @@
 	Plugin Name: Feedburner Email Subscription
 	Plugin URI: http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/
 	Description: Give your biggest fans another way to keep up with your content feed by placing a <a href="http://www.feedburner.com/" alt="Feedburner" title="Feedburner">Feedburner</a> email subscription widget on your site. This widget will follow your theme stylesheet.
-	Version: 1.2.1
+	Version: 1.2.2
 	Author: zourbuth
 	Author URI: http://zourbuth.com
 	License: Under GPL2
-*/
  
-/*  
 	Copyright 2011 zourbuth (email : zourbuth@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -33,7 +31,7 @@ add_action( 'plugins_loaded', 'zframe_feedburner_email_subscription_plugins_load
 function zframe_feedburner_email_subscription_plugins_loaded() {
 
 	// Set constant
-	define( 'FEEDBURNER_EMAIL_SUBSCRIPTION_VERSION', '1.2.1' );
+	define( 'FEEDBURNER_EMAIL_SUBSCRIPTION_VERSION', '1.2.2' );
 	define( 'FEEDBURNER_EMAIL_SUBSCRIPTION_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'FEEDBURNER_EMAIL_SUBSCRIPTION_URL', plugin_dir_url( __FILE__ ) );
 

@@ -66,3 +66,14 @@ li.market-item img:hover {
 	opacity: 0.75;
 	filter: alpha(opacity=75);
 }
+.widget .totalBackground {
+    background: url("../images/background.png") no-repeat scroll left top transparent;
+    border-top: 1px solid #E4E4E4;
+    position: relative;
+}
+.fes-loading {
+    background: url(../images/loading.gif) no-repeat scroll left center transparent;
+	padding-left: 25px;
+	margin-bottom: 13px;
+	display: block;
+}
