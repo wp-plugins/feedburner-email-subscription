@@ -1,7 +1,7 @@
 === Feedburner Email Subscription ===
 Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
-Tags: subscription, widget, email, feedburner, feed, shortcode, rss
+Tags: subscription, subscriber, widget, email, feedburner, feed, shortcode, rss, newsletter, mailer
 Requires at least: 3.5
 Tested up to: 3.0
 Stable tag: 1.2.2
@@ -35,8 +35,10 @@ Easy to use and customize, just put your Feedburner site name and you are ready 
 == Installation ==
 
 You can use the built in installer and upgrader, or you can install the plugin manually.
-1. Go to the menu 'Plugins' -> 'Install' and search for 'Feedburner Email Subscription'
-2. Click 'install'.
+<ul>
+<li>1. Go to the menu 'Plugins' -> 'Install' and search for 'Feedburner Email Subscription'</li>
+<li>2. Click 'install'.</li>
+</ul>
 
 == Frequently Asked Questions ==
 
