@@ -14,18 +14,26 @@
  * Outputs the widget based on the arguments input through the widget controls.
  * @since 0.6.0
  */
-function proc_feedburner_email_subscription( $feed_title ) {
+function proc_feedburner_email_subscription( $args ) { 
+	// Set up the default form values
+	$defaults = array(
+		'feed'		=> '',
+		'text'		=> __( 'Your email here', 'feedburner-email-subscription' ),
+		'submit'	=> __( 'Subscribe', 'feedburner-email-subscription' ),
+	);
+
+	// Merge the user-selected arguments with the defaults
+	$args = wp_parse_args( (array) $args, $defaults );
+	extract( $args );
 	?>
-		<form id="feedburner-zframefeedburner" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $feed_title; ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-
-		<p><input type="text" value="Your email here" onfocus="if(this.value=='Your email here')this.value='';" onblur="if(this.value=='')this.value='Your email here';" id="email-zframefeedburner" name="email">
-
-		<input type="hidden" value="<?php echo $feed_title; ?>" name="uri"/>
-		<input type="hidden" name="loc" value="en_US"/>
-		<label>
-			<input type="submit" id="imageField" name="imageField" value="Subscribe" alt="Submit">
-		</label></p>
-		</form>
+	<form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $feed; ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+		<p>
+			<input type="text" value="<?php echo $text; ?>" onfocus="if(this.value=='<?php echo $text; ?>')this.value='';" onblur="if(this.value=='')this.value='<?php echo $text; ?>';" name="email">
+			<input type="submit" name="imageField" value="<?php echo $submit; ?>" alt="Submit" />
+			<input type="hidden" value="<?php echo $feed; ?>" name="uri"/>
+			<input type="hidden" name="loc" value="en_US" />			
+		</p>
+	</form>
 	<?php
 }
 

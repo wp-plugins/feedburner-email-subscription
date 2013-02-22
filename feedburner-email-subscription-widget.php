@@ -95,12 +95,14 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		$data = curl_exec($ch);
 		curl_close($ch);
 		$data = json_decode($data);
+		
+		$i = 0; $html = '';
 		if( $data ) {
-			$i = 0; $html = '';
+			
 			$html .= '<p><strong>Our Premium Plugins</strong></p>';
 			$html .= '<ul class="envato-market">'; $i = 0;
 			foreach( $data->{'new-files-from-user'} as $key => $value ) {
-				if( $i < 12 ) {
+				if( $i < 15 ) {
 					$html .= '<li class="market-item">';
 						$html .= '<a href="'.$value->url.'?ref=zourbuth"><img src="'.$value->thumbnail.'"></a>';
 					$html .= '</li>';
@@ -120,13 +122,6 @@ class Feedburner_Email_Subscription extends WP_Widget {
 	 */
 	function widget( $args, $instance ) {
 		extract( $args );
-
-		// Set up the arguments
-		$args = array(
-			'feed_title'	=>	intval( $instance['feed_title'] ),
-			'intro_text'	=>	$instance['intro_text'],
-			'outro_text'	=>	$instance['intro_text'],
-		); 
 		
 		echo $before_widget;
 		
@@ -136,10 +131,17 @@ class Feedburner_Email_Subscription extends WP_Widget {
 
 		// Print intro text if exist
 		if ( !empty( $instance['intro_text'] ) )
-			echo '<p class="'. $this->id . '-intro-text intro-text">' . $instance['intro_text'] . '</p>';
+			echo '<p class="'. $this->id . '-intro-text intro-text">' . $instance['intro_text'] . '</p>';		
+		
+		// Set up the arguments
+		$params = array(
+			'feed' 		=> isset( $instance['feed_title'] ) ? $instance['feed_title'] : '',
+			'text'		=> isset( $instance['text'] ) ? $instance['text'] : '',
+			'submit' 	=> isset( $instance['submit'] ) ? $instance['submit'] : '',
+		); 
 		
 		// Display the feedburner
-		proc_feedburner_email_subscription( $instance['feed_title'] );
+		proc_feedburner_email_subscription( $params );
 		
 		// Print outro text if exist
 		if ( !empty( $instance['outro_text'] ) )
@@ -159,6 +161,8 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		/* Set the instance to the new instance. */
 		$instance = $new_instance;
 		$instance['feed_title'] = strip_tags( $new_instance['feed_title'] );
+		$instance['text'] 		= strip_tags( $new_instance['text'] );
+		$instance['submit'] 	= strip_tags( $new_instance['submit'] );
 		$instance['intro_text'] = $new_instance['intro_text'];
 		$instance['outro_text'] = $new_instance['outro_text'];
 		
@@ -175,6 +179,8 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		// Set up the default form values
 		$defaults = array(
 			'title' 		=> __( 'Email Subscription', $this->textdomain ),
+			'text' 			=> __( 'Your email here', $this->textdomain ),
+			'submit' 		=> __( 'Subscribe', $this->textdomain ),
 			'feed_title'	=> '',
 			'intro_text'	=> '',
 			'outro_text' 	=> ''
@@ -186,15 +192,25 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		<div id="<?php echo $this->id . '-wrapper'; ?>" class="totalControls">
 			<div class="zframe-widget-controls columns-2">
 				<p>
-					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', $this->textdomain ); ?></label>
-					<span class="controlDesc"><?php _e('Give the widget a title, leave empty for no title.', $this->textdomain ); ?></span>
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', $this->textdomain ); ?></label>					
 					<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
+					<span class="controlDesc"><?php _e('Give the widget a title, leave empty for no title.', $this->textdomain ); ?></span>
 				</p>
 				<p>
 					<label for="<?php echo $this->get_field_id( 'feed_title' ); ?>"><?php _e( 'Your Feedburner Title', $this->textdomain ); ?></label>
 					<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'feed_title' ); ?>" name="<?php echo $this->get_field_name( 'feed_title' ); ?>" value="<?php echo esc_attr( $instance['feed_title'] ); ?>" />
 					<span class="controlDesc"><?php _e('Example: zourbuth', $this->textdomain ); ?></span>
 				</p>
+				<p>
+					<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Input Text', $this->textdomain ); ?></label>					
+					<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>" value="<?php echo esc_attr( $instance['text'] ); ?>" />
+					<span class="controlDesc"><?php _e('The email input text.', $this->textdomain ); ?></span>
+				</p>
+				<p>
+					<label for="<?php echo $this->get_field_id( 'submit' ); ?>"><?php _e( 'Submit Button Text', $this->textdomain ); ?></label>					
+					<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'submit' ); ?>" name="<?php echo $this->get_field_name( 'submit' ); ?>" value="<?php echo esc_attr( $instance['submit'] ); ?>" />
+					<span class="controlDesc"><?php _e('The form submit button text.', $this->textdomain ); ?></span>
+				</p>				
 				<p>
 					<label for="<?php echo $this->get_field_id( 'intro_text' ); ?>"><?php _e('Intro Text', $this->textdomain ) ?></label><br />
 					<textarea name="<?php echo $this->get_field_name( 'intro_text' ); ?>" id="<?php echo $this->get_field_id( 'intro_text' ); ?>" rows="4" class="widefat"><?php echo htmlentities($instance['intro_text']); ?></textarea>
@@ -206,8 +222,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 					<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
 				</p>			
 				<p>
-					Please give rating to <a href="http://wordpress.org/extend/plugins/feedburner-email-subscription-widget/">Feedburner Email Subscription Widget</a> and visit <a href="http://zourbuth.com/feedburner-email-subscription-widget/">zourbuth.com</a> for more informations.<br />
-					<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br /><br />			
+					Please give rating to <a href="http://wordpress.org/extend/plugins/feedburner-email-subscription/">Feedburner Email Subscription Widget</a> and visit <a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">zourbuth.com</a> for more informations.
 				</p>
 				
 			</div>
@@ -217,6 +232,9 @@ class Feedburner_Email_Subscription extends WP_Widget {
 				<p>
 					<strong>Need Custom Code or Customization for lower cost?</strong>&nbsp;
 					Please feel free to send mail to <a href="mailto:zourbuth@gmail.com">zourbuth@gmail.com</a>
+				</p>
+				<p>
+					<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.	
 				</p>
 				<p>
 					Subscribe to zourbuth by <a href="http://feedburner.google.com/fb/a/mailverify?uri=zourbuth&amp;loc=en_US">email</a><br />

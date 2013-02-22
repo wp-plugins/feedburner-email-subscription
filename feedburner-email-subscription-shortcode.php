@@ -8,13 +8,17 @@
  * This widget support shortcode for the short description.
  * For another improvement, you can drop email to zourbuth@gmail.com or visit http://zourbuth.com/feedburner-email-subscription
 **/
+function feedburner_shortcode( $atts ) {
+	$args = shortcode_atts(array(
+		'feed'		=> '',
+		'submit'	=> __( 'Subscribe', 'feedburner-email-subscription' ),
+	), $atts );
 
-function feedburner_func( $atts ) {
-	extract( shortcode_atts( array( 'feed' => 'zourbuth'), $atts) ); 
-	$html .= proc_feedburner_email_subscription( $feed ); 
+	$html  = '';
+	$html .= proc_feedburner_email_subscription( $atts ); 
 	$html .= '<div class="clear"></div>';
 	return $html;
 }
 
-add_shortcode('feedburner', 'feedburner_func');
+add_shortcode('feedburner', 'feedburner_shortcode');
 ?>

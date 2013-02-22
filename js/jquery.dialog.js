@@ -21,6 +21,7 @@ jQuery(document).ready(function($){
 	
 	$.fn.fesLoadUtility = function(){
 		var t = $(this);
+		t.empty();
 		t.append("<span class='fes-loading'>Loading item...</span>");
 		$.post( ajaxurl, { action: fes.action, nonce : fes.nonce }, function(data){
 			$(".fes-loading").remove();
