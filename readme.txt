@@ -21,6 +21,7 @@ Easy to use and customize, just put your Feedburner site name and you are ready 
 <li>Support shortcode</li>
 <li>Extensive widget options</li>
 <li>Widget intro and outro-text for your additional information, support HTML</li>
+<li>Plugin translation</li>
 </ul>
 
 <h4>Further Reading</h4>
@@ -28,8 +29,10 @@ Easy to use and customize, just put your Feedburner site name and you are ready 
 <li><a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a></li>
 <li><a href="http://zourbuth.com/archives/521/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a></li>
 <li><a href="http://zourbuth.com/archives/615/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
-<li>Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a> plugin site.</li>
 </ul>
+
+<h4>Supports & Features</h4>
+Please post comment or ask a new feature at <a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a> plugin site.
 
 
 == Installation ==
