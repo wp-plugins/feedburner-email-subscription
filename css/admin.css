@@ -41,11 +41,10 @@
 	text-decoration: none;
 }
 input.smallfat {
-	float: right;
+
 	width: 66px;
 	}
 select.smallfat {
-	float: right;
 	min-width: 66px;
 }
 ul.envato-market {

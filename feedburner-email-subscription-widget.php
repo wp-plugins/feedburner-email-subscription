@@ -39,7 +39,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		$this->textdomain = 'feedburner-email-subscription';	
 
 		// Load the widget stylesheet for the widgets screen
-		add_action( 'load-widgets.php', array(&$this, 'zframe_fesw_style') );
+		add_action( 'load-widgets.php', array(&$this, 'load_widget') );
 		
 		// Set up the widget options
 		$widget_options = array(
@@ -69,8 +69,8 @@ class Feedburner_Email_Subscription extends WP_Widget {
 	 * Register the style or script, push the widget stylesheet widget.css into widget admin page
 	 * @since 1.0
 	 */	
-	function zframe_fesw_style() {
-		wp_enqueue_style( 'feedburner-email-subscription-admin', FEEDBURNER_EMAIL_SUBSCRIPTION_URL . 'css/admin.css', false, 0.7, 'screen' );
+	function load_widget() {
+		wp_enqueue_style( 'feedburner-email-subscription-admin', FEEDBURNER_EMAIL_SUBSCRIPTION_URL . 'css/admin.css' );
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'feedburner-email-subscription-dialog', FEEDBURNER_EMAIL_SUBSCRIPTION_URL . 'js/jquery.dialog.js' );
 		wp_localize_script( 'feedburner-email-subscription-dialog', 'fes', array(
@@ -212,12 +212,12 @@ class Feedburner_Email_Subscription extends WP_Widget {
 					<span class="controlDesc"><?php _e('The form submit button text.', $this->textdomain ); ?></span>
 				</p>				
 				<p>
-					<label for="<?php echo $this->get_field_id( 'intro_text' ); ?>"><?php _e('Intro Text', $this->textdomain ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'intro_text' ); ?>"><?php _e('Intro Text', $this->textdomain ) ?></label>
 					<textarea name="<?php echo $this->get_field_name( 'intro_text' ); ?>" id="<?php echo $this->get_field_id( 'intro_text' ); ?>" rows="4" class="widefat"><?php echo htmlentities($instance['intro_text']); ?></textarea>
 					<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
 				</p>
 				<p>
-					<label for="<?php echo $this->get_field_id( 'outro_text' ); ?>"><?php _e('Outro Text', $this->textdomain ) ?></label><br />
+					<label for="<?php echo $this->get_field_id( 'outro_text' ); ?>"><?php _e('Outro Text', $this->textdomain ) ?></label>
 					<textarea name="<?php echo $this->get_field_name( 'outro_text' ); ?>" id="<?php echo $this->get_field_id( 'outro_text' ); ?>" rows="4" class="widefat"><?php echo htmlentities($instance['outro_text']); ?></textarea>
 					<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
 				</p>			
