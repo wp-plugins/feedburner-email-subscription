@@ -135,9 +135,11 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		
 		// Set up the arguments
 		$params = array(
-			'feed' 		=> isset( $instance['feed_title'] ) ? $instance['feed_title'] : '',
-			'text'		=> isset( $instance['text'] ) ? $instance['text'] : '',
-			'submit' 	=> isset( $instance['submit'] ) ? $instance['submit'] : '',
+			'feed' 					=> isset( $instance['feed_title'] ) ? $instance['feed_title'] : '',
+			'text'					=> isset( $instance['text'] ) ? $instance['text'] : '',
+			'submit' 				=> isset( $instance['submit'] ) ? $instance['submit'] : '',
+			'posts_feed_link' 		=> !empty( $instance['posts_feed_link'] ) ? true : false,
+			'comments_feed_link' 	=> !empty( $instance['comments_feed_link'] ) ? true : false,
 		); 
 		
 		// Display the feedburner
@@ -160,11 +162,13 @@ class Feedburner_Email_Subscription extends WP_Widget {
 
 		/* Set the instance to the new instance. */
 		$instance = $new_instance;
-		$instance['feed_title'] = strip_tags( $new_instance['feed_title'] );
-		$instance['text'] 		= strip_tags( $new_instance['text'] );
-		$instance['submit'] 	= strip_tags( $new_instance['submit'] );
-		$instance['intro_text'] = $new_instance['intro_text'];
-		$instance['outro_text'] = $new_instance['outro_text'];
+		$instance['feed_title'] 		= strip_tags( $new_instance['feed_title'] );
+		$instance['text'] 				= strip_tags( $new_instance['text'] );
+		$instance['submit'] 			= strip_tags( $new_instance['submit'] );
+		$instance['posts_feed_link']	= ( isset( $new_instance['posts_feed_link'] ) ? 1 : 0 );
+		$instance['comments_feed_link']	= ( isset( $new_instance['comments_feed_link'] ) ? 1 : 0 );
+		$instance['intro_text'] 		= $new_instance['intro_text'];
+		$instance['outro_text'] 		= $new_instance['outro_text'];
 		
 		return $instance;
 	}	
@@ -182,6 +186,8 @@ class Feedburner_Email_Subscription extends WP_Widget {
 			'text' 			=> __( 'Your email here', $this->textdomain ),
 			'submit' 		=> __( 'Subscribe', $this->textdomain ),
 			'feed_title'	=> '',
+			'posts_feed_link'		=> true,
+			'comments_feed_link'	=> true,	
 			'intro_text'	=> '',
 			'outro_text' 	=> ''
 		);
@@ -210,7 +216,15 @@ class Feedburner_Email_Subscription extends WP_Widget {
 					<label for="<?php echo $this->get_field_id( 'submit' ); ?>"><?php _e( 'Submit Button Text', $this->textdomain ); ?></label>					
 					<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'submit' ); ?>" name="<?php echo $this->get_field_name( 'submit' ); ?>" value="<?php echo esc_attr( $instance['submit'] ); ?>" />
 					<span class="controlDesc"><?php _e('The form submit button text.', $this->textdomain ); ?></span>
-				</p>				
+				</p>
+				<p>
+					<label for="<?php echo $this->get_field_id( 'posts_feed_link' ); ?>">
+					<input class="checkbox" type="checkbox" <?php checked( $instance['posts_feed_link'], true ); ?> id="<?php echo $this->get_field_id( 'posts_feed_link' ); ?>" name="<?php echo $this->get_field_name( 'posts_feed_link' ); ?>" /><?php _e( 'Display posts feed link', $this->textdomain ); ?></label>
+				</p>
+				<p>
+					<label for="<?php echo $this->get_field_id( 'comments_feed_link' ); ?>">
+					<input class="checkbox" type="checkbox" <?php checked( $instance['comments_feed_link'], true ); ?> id="<?php echo $this->get_field_id( 'comments_feed_link' ); ?>" name="<?php echo $this->get_field_name( 'comments_feed_link' ); ?>" /><?php _e( 'Display comments feed link', $this->textdomain ); ?></label>
+				</p>					
 				<p>
 					<label for="<?php echo $this->get_field_id( 'intro_text' ); ?>"><?php _e('Intro Text', $this->textdomain ) ?></label>
 					<textarea name="<?php echo $this->get_field_name( 'intro_text' ); ?>" id="<?php echo $this->get_field_id( 'intro_text' ); ?>" rows="4" class="widefat"><?php echo htmlentities($instance['intro_text']); ?></textarea>
