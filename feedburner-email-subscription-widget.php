@@ -143,7 +143,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		); 
 		
 		// Display the feedburner
-		proc_feedburner_email_subscription( $params );
+		echo proc_feedburner_email_subscription( $params );
 		
 		// Print outro text if exist
 		if ( !empty( $instance['outro_text'] ) )

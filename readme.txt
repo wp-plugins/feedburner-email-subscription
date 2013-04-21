@@ -59,6 +59,8 @@ Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archive
 2. Widget in frontend
 
 == Changelog ==
+= 1.2.6 =
+* Post shortcode fixed
 = 1.2.5 =
 * Posts and comments feed link added
 = 1.2.4 =
