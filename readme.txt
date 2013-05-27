@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: subscription, subscriber, widget, email, feedburner, feed, shortcode, rss, newsletter, mailer
 Requires at least: 3.5
 Tested up to: 3.0
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 
 Give your biggest fans another way to keep up with your content feed by placing an feedburner email subscription on your site.
 
@@ -59,6 +59,8 @@ Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archive
 2. Widget in frontend
 
 == Changelog ==
+= 1.2.7 =
+* Fix option for display comment and feed link.
 = 1.2.6 =
 * Post shortcode fixed
 = 1.2.5 =

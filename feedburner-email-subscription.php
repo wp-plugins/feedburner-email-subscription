@@ -48,10 +48,10 @@ function proc_feedburner_email_subscription( $args ) {
 		'comstitle'	=> __('%1$s %2$s Comments Feed'),
 	);
 
-	if( isset( $args['posts_feed_link'] ) )
+	if( $args['posts_feed_link'] )
 		$html .= '<a class="feed-link" title="' . esc_attr(sprintf( $rss['feedtitle'], get_bloginfo('name'), $rss['separator'] )) . '" href="' . get_feed_link() . '"><img alt="i" src="' . FEEDBURNER_EMAIL_SUBSCRIPTION_URL . 'images/rss.png" />Posts <abbr title="Really Simple Syndication">RSS</abbr></a>';
 	
-	if( isset( $args['comments_feed_link'] ) )
+	if( $args['comments_feed_link'] )
 		$html .= '<a class="feed-link" title="' . esc_attr(sprintf( $rss['comstitle'], get_bloginfo('name'), $rss['separator'] )) . '" href="' . get_feed_link( 'comments_' . get_default_feed() ) . '"><img alt="i" src="' . FEEDBURNER_EMAIL_SUBSCRIPTION_URL . 'images/rss.png" />Comments <abbr title="Really Simple Syndication">RSS</abbr></a>';
 
 	return $html;
