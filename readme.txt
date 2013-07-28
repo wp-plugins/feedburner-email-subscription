@@ -31,9 +31,10 @@ Easy to use and customize, just put your Feedburner site name and you are ready 
 <li><a href="http://zourbuth.com/archives/615/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
 </ul>
 
-<h4>Supports & Features</h4>
-Please post comment or ask a new feature at <a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a> plugin site.
-
+<h3>Supports & Features</h3>
+This plugin does not match to your site style? Is this script not quite working as it should? 
+Having trouble installing? Or need some custom modifications that aren’t already included? 
+Or you want more features on next release? Feel free to get in touch about any of your queries via <a href="http://zourbuth.com/?p=498">plugin homepage</a>.
 
 == Installation ==
 
