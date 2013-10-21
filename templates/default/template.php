@@ -30,7 +30,7 @@
 				<label class="sr-only"><span class="screen-reader-text">Email Subscription</span></label>
 				<input class="form-control search-field" type="text" value="<?php echo $text; ?>" onfocus="if(this.value=='<?php echo $text; ?>')this.value='';" onblur="if(this.value=='')this.value='<?php echo $text;?>'" name="email">
 			</div>
-			<button type="submit" class="btn btn-default btn-theme btn-search search-submit"><?php echo $submit; ?></button>			
+			<button type="submit" class="btn btn-default btn-submit"><?php echo $submit; ?></button>			
 		<?php else : ?>
 			<p>
 				<input type="text" value="<?php echo $text; ?>" onfocus="if(this.value=='<?php echo $text; ?>')this.value='';" onblur="if(this.value=='')this.value='<?php echo $text;?>'" name="email">
