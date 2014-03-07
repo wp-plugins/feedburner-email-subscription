@@ -5,7 +5,6 @@ jQuery(document).ready( function($) {
 		c = t.parents(".totalControls").find(".fesem");
 		
 		if ( c.is(':empty')) {
-			console.log( "konoto" );
 			c.append("<span class='fes-loading loading'>Loading item...</span>");
 			$.post( ajaxurl, { action: fes.action, nonce : fes.nonce }, function(data){
 				$(".fes-loading").remove();

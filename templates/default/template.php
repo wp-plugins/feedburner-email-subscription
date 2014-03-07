@@ -24,7 +24,7 @@
 			
 ?>
 <div class="fes-default">
-	<form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri='<?php echo $feed; ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+	<form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $feed; ?>', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
 		<?php if( isset( $args['bootstrap_3'] ) ) : ?>
 			<div class="form-group">
 				<label class="sr-only"><span class="screen-reader-text">Email Subscription</span></label>

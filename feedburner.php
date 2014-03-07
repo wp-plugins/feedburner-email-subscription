@@ -7,6 +7,14 @@
  * Give your biggest fans another way to keep up with your content feed by placing an email subscription widget on your site.
  * This widget support shortcode for the short description.
  * For another improvement, you can drop email to zourbuth@gmail.com or visit http://zourbuth.com/feedburner-email-subscription
+ 
+	en_US English
+	es_ES Español
+	fr_FR Français
+	de_DE Deutsch
+	pt_BR Português
+	ru_RU русский язык
+	ja_JP 日本語
 **/
 
 	
