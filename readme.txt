@@ -3,8 +3,8 @@ Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
 Tags: subscription, subscriber, widget, email, feedburner, feed, shortcode, rss, newsletter, mailer
 Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 1.3.0
+Tested up to: 3.9
+Stable tag: 1.3.1
 
 Give your biggest fans another way to keep up with your content feed by placing an feedburner email subscription on your site.
 
@@ -65,9 +65,12 @@ Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archive
 3. Example of feedburner.com settings
 
 == Changelog ==
+= 1.3.1 =
+* Fixed undefined comments_feed_link and posts_feed_link
+* Added default CSS class for shortcode
 = 1.3.0 =
-* Fix transparent widget background
-* Fix form action URL
+* Fixed transparent widget background
+* Fixed form action URL
 = 1.2.9 =
 * Twitter Bootstrap 3 supports added
 * Remove plugin CSS option added
@@ -75,14 +78,14 @@ Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archive
 * Change widget admin interface
 * Added custom style and script box for active widget
 = 1.2.7 =
-* Fix option for display comment and feed link.
+* Fixed option for display comment and feed link.
 = 1.2.6 =
 * Post shortcode fixed
 = 1.2.5 =
 * Posts and comments feed link added
 = 1.2.4 =
 * Translation added
-* Fix widget layout
+* Fixed widget layout
 = 1.2.3 =
 * Input text on focus option added
 * Submit button text option added

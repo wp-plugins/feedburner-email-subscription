@@ -16,3 +16,6 @@
 .feedburner-email-subscription a.feed-link:last-child {
 	margin-right: 0;
 }
+.feedburner-email-subscription form {
+	margin-bottom: 10px;
+}

@@ -14,9 +14,10 @@ function feedburner_shortcode( $atts ) {
 		'submit'	=> __( 'Subscribe', 'feedburner-email-subscription' ),
 	), $atts );
 
-	$html  = '';
+	$html  = '<div class="feedburner-email-subscription">';
 	$html .= proc_feedburner_email_subscription( $atts ); 
 	$html .= '<div class="clear"></div>';
+	$html .= '</div>';
 	return $html;
 }
 
