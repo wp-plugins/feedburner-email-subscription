@@ -52,13 +52,13 @@
 				'comstitle'	=> __('%1$s %2$s Comments Feed'),
 			);
 			
-			if( isset( $args['posts_feed_link'] ) ){ ?>
+			if( $args['posts_feed_link'] ){ ?>
 				<a class="feed-link" title="<?php echo esc_attr(sprintf( $rss['feedtitle'], get_bloginfo('name'), $rss['separator'] )); ?>" href="<?php echo get_feed_link(); ?>">
 					<img alt="img" src="<?php echo FEEDBURNER_EMAIL_SUBSCRIPTION_URL; ?>/img/rss.png" />Posts <abbr title="Really Simple Syndication">RSS</abbr>
 				</a><?php
 			}
 			
-			if( isset( $args['comments_feed_link'] ) ) { ?>
+			if( $args['comments_feed_link'] ) { ?>
 				<a class="feed-link" title="<?php echo esc_attr(sprintf( $rss['comstitle'], get_bloginfo('name'), $rss['separator'] )); ?>" href="<?php echo get_feed_link( 'comments_' . get_default_feed() ); ?>">
 					<img alt="img" src="<?php echo FEEDBURNER_EMAIL_SUBSCRIPTION_URL; ?>/img/rss.png" />Comments <abbr title="Really Simple Syndication">RSS</abbr>
 				</a><?php

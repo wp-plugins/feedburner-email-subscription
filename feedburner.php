@@ -46,9 +46,11 @@ function proc_feedburner_email_subscription( $args ) {
 		'feed'			=> 'zourbuth',
 		'text'			=> __( 'Your email here', 'feedburner-email-subscription' ),
 		'submit'		=> __( 'Subscribe', 'feedburner-email-subscription' ),
+		'posts_feed_link'		=> false,
+		'comments_feed_link'	=> false,		
 		'template'		=> 'default',
 		'remove_css'	=> false,
-		'bootstrap_3'	=> false,		
+		'bootstrap_3'	=> false,	
 	);
 
 	// Merge the user-selected arguments with the defaults
