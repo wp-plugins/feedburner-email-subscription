@@ -30,7 +30,7 @@ Easy to use and customize, just put your Feedburner site name and you are ready 
 
 <h4>Further Reading</h4>
 <ul>
-<li><a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a></li>
+<li><a href="http://www.ground6.com/wordpress-plugins/feedburner-email-subscription/">Feedburner Email Subscription Homepage</a></li>
 <li><a href="http://zourbuth.com/archives/521/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a></li>
 <li><a href="http://zourbuth.com/archives/615/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
 </ul>
@@ -38,7 +38,7 @@ Easy to use and customize, just put your Feedburner site name and you are ready 
 <h3>Supports & Features</h3>
 This plugin does not match to your site style? Is this script not quite working as it should? 
 Having trouble installing? Or need some custom modifications that aren’t already included? 
-Or you want more features on next release? Feel free to get in touch about any of your queries via <a href="http://zourbuth.com/?p=498">plugin homepage</a>.
+Or you want more features on next release? Feel free to get in touch about any of your queries via <a href="http://www.ground6.com/wordpress-plugins/feedburner-email-subscription/">plugin homepage</a>.
 
 == Installation ==
 
@@ -51,9 +51,9 @@ You can use the built in installer and upgrader, or you can install the plugin m
 == Frequently Asked Questions ==
 
 = A question that someone might have =
-Please read the FAQ or ask a new feature at <a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a> plugin site.
+Please read the FAQ or ask a new feature at <a href="http://www.ground6.com/wordpress-plugins/feedburner-email-subscription/">Feedburner Email Subscription</a> plugin site.
 <ul>
-<li><a href="http://zourbuth.com/archives/498/feedburner-email-subscription-wordpress-plugin/">Feedburner Email Subscription</a></li>
+<li><a href="http://www.ground6.com/wordpress-plugins/feedburner-email-subscription/">Feedburner Email Subscription</a></li>
 <li><a href="http://zourbuth.com/archives/521/how-to-use-feedburner-email-subscription/">How to Use Feedburner Email Subscription</a></li>
 <li><a href="http://zourbuth.com/archives/615/feedburner-error-message-the-feed-does-not-have-subscriptions-by-email-enabled/">Feedburner Error Message: The feed does not have subscriptions by email enabled</a></li>
 </ul>
