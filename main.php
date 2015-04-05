@@ -8,14 +8,39 @@
  * This widget support shortcode for the short description.
  * For another improvement, you can drop email to zourbuth@gmail.com or visit http://zourbuth.com/feedburner-email-subscription
  
-	en_US English
-	es_ES Español
-	fr_FR Français
-	de_DE Deutsch
-	pt_BR Português
-	ru_RU русский язык
-	ja_JP 日本語
+ * Feedburner available languages:
+ * en_US English
+ * es_ES Español
+ * fr_FR Français
+ * de_DE Deutsch
+ * pt_BR Português
+ * ru_RU русский язык
+ * ja_JP 日本語
 **/
+
+	
+/**
+ * Outputs the widget based on the arguments input through the widget controls.
+ * @since 1.2.8
+ */
+function fes_default_arguments() {
+	return array(
+		'title' 				=> __( 'Email Subscription', FEEDBURNER_EMAIL_SUBSCRIPTION_TEXTDOMAIN ),
+		'text' 					=> __( 'Your email here', FEEDBURNER_EMAIL_SUBSCRIPTION_TEXTDOMAIN ),
+		'submit' 				=> __( 'Subscribe', FEEDBURNER_EMAIL_SUBSCRIPTION_TEXTDOMAIN ),
+		'feed_title'			=> 'zourbuth',
+		'posts_feed_link'		=> false,
+		'comments_feed_link'	=> false,
+		'form_open'				=> 'popup', /* @since 1.3.4. | popup, new window, current window */
+		'remove_css'			=> false,
+		'bootstrap_3'			=> false,
+		'template'				=> 'default',
+		'intro_text'			=> '',
+		'outro_text' 			=> '',
+		'customstylescript' 	=> '',
+		'toggle_active'			=> array( 0 => true, 1 => false, 2 => false, 3 => false ),
+	);	
+}
 
 	
 /**

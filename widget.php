@@ -55,12 +55,14 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		);
 
 		// Create the widget
-		$this->WP_Widget( $this->prefix, esc_attr__( 'FeedBurner Email Subscription', $this->textdomain ), $widget_options, $control_options );
+		$this->WP_Widget( $this->prefix, __( 'FeedBurner Email Subscription', $this->textdomain ), $widget_options, $control_options );
 		
 		add_action('wp_ajax_fes_load_utility', array(&$this, 'fes_load_utility') );
 				
-		if ( is_active_widget( false, false, $this->id_base ) && ! is_admin() )
+		if ( is_active_widget( false, false, $this->id_base ) && ! is_admin() ) {
 			add_action( 'wp_head', array( &$this, 'print_head' ), 2 );
+			wp_enqueue_style( 'fes', FEEDBURNER_EMAIL_SUBSCRIPTION_URL . 'css/styles.css' );
+		}
 	}
 
 	
@@ -69,19 +71,9 @@ class Feedburner_Email_Subscription extends WP_Widget {
 	 * @since 1.2.8
 	 */	
 	function print_head() {
-		$settings = $this->get_settings();
-		foreach ( $settings as $k => $setting ) {
-			$template = isset( $setting['template'] ) ? $setting['template'] : 'default';
-			if( file_exists( FEEDBURNER_EMAIL_SUBSCRIPTION_DIR . "templates/$template/template.css" ) ) {
-				if ( isset( $setting['remove_css'] ) && $setting['remove_css'] )
-					wp_dequeue_style( "fes-$template" );
-				else
-					wp_enqueue_style( "fes-$template", FEEDBURNER_EMAIL_SUBSCRIPTION_URL . "templates/$template/template.css" );
-			}
-				
-			if ( ! empty( $setting['customstylescript'] ) ) 
-				echo $setting['customstylescript'];
-		}
+		foreach ( $this->get_settings() as $k => $v ) 		
+			if ( ! empty( $v['customstylescript'] ) )
+				echo $v['customstylescript'];
 	}
 
 	
@@ -105,31 +97,26 @@ class Feedburner_Email_Subscription extends WP_Widget {
 	 * @since 1.2.2
 	 */
 	function fes_load_utility() {
+
 		// Check the nonce and if not isset the id, just die.
 		$nonce = $_POST['nonce'];
 		if ( ! wp_verify_nonce( $nonce, 'fes-nonce' ) )
 			die();
 
-		$ch = curl_init();
-		curl_setopt($ch,CURLOPT_URL, 'http://marketplace.envato.com/api/edge/collection:4204349.json');
-		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-		curl_setopt($ch,CURLOPT_USERAGENT,$_SERVER['HTTP_USER_AGENT']);		
-		$data = curl_exec($ch);
-		curl_close($ch);
-		$data = json_decode($data);
+		$response = wp_remote_get( 'http://marketplace.envato.com/api/edge/collection:4204349.json' );
+		$body = wp_remote_retrieve_body( $response );		
+		
+		if ( is_wp_error( $body ) )
+			exit();
+		
+		$data = json_decode( $body );
 
-		$i = 0; $html = '<p><strong>Our Premium Plugins</strong></p>';
-		if( $data ) {
-			$i = 0;
-			foreach( $data->{'collection'} as $key => $value ) {
-				if( $i < 15 ) {
-					$html .= '<a href="'.$value->url.'?ref=zourbuth"><img src="'.$value->thumbnail.'"></a>&nbsp;';
-					$i++;
-				}
-			}
-		}
+		$html = '<p><strong>'. __( 'Our Premium Plugins', $this->textdomain ) .'</strong></p>';
+		foreach( $data->{'collection'} as $key => $value )
+			$html .= '<a href="'.$value->url.'?ref=zourbuth"><img src="'.$value->thumbnail.'"></a>&nbsp;';
+
 		echo $html;
-		exit;
+		exit();
 	}
 	
 	
@@ -150,20 +137,9 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		if ( !empty( $instance['intro_text'] ) )
 			echo '<p class="'. $this->id . '-intro-text intro-text">' . $instance['intro_text'] . '</p>';		
 		
-		// Set up the arguments
-		$args = array(
-			'feed' 					=> isset( $instance['feed_title'] ) ? $instance['feed_title'] : 'zourbuth',
-			'text'					=> isset( $instance['text'] ) ? $instance['text'] : '',
-			'submit' 				=> isset( $instance['submit'] ) ? $instance['submit'] : '',			
-			'remove_css' 			=> isset( $instance['remove_css'] ) ? true : false,
-			'bootstrap_3' 			=> isset( $instance['bootstrap_3'] ) ? true : false,
-			'posts_feed_link' 		=> ! empty( $instance['posts_feed_link'] ) ? true : false,
-			'comments_feed_link' 	=> ! empty( $instance['comments_feed_link'] ) ? true : false,
-			'template' 				=> isset( $instance['template'] ) ? $instance['template'] : 'default',
-		); 
-		
-		// Display the feedburner
-		echo proc_feedburner_email_subscription( $args );
+		// Generate the form
+		$args = wp_parse_args( (array) $instance, fes_default_arguments() ); 
+		do_action( 'fes_form_template_' . $args['template'], $args );
 		
 		// Print outro text if exist
 		if ( !empty( $instance['outro_text'] ) )
@@ -205,23 +181,6 @@ class Feedburner_Email_Subscription extends WP_Widget {
 	 */		
 	function form( $instance ) {
 
-		// Set up the default form values
-		$defaults = array(
-			'title' 				=> __( 'Email Subscription', $this->textdomain ),
-			'text' 					=> __( 'Your email here', $this->textdomain ),
-			'submit' 				=> __( 'Subscribe', $this->textdomain ),
-			'feed_title'			=> 'zourbuth',
-			'posts_feed_link'		=> false,
-			'comments_feed_link'	=> false,
-			'remove_css'			=> false,
-			'bootstrap_3'			=> false,
-			'template'				=> 'default',
-			'intro_text'			=> '',
-			'outro_text' 			=> '',
-			'customstylescript' 	=> '',
-			'toggle_active'			=> array( 0 => true, 1 => false, 2 => false, 3 => false ),
-		);
-
 		$tabs = array( 
 			__( 'General', $this->textdomain ),  
 			__( 'Template', $this->textdomain ),
@@ -229,8 +188,20 @@ class Feedburner_Email_Subscription extends WP_Widget {
 			__( 'Supports', $this->textdomain )
 		);
 
+		$_form_open = array(
+			'popup'		=> __( 'Pop up window', $this->textdomain ),
+			'new'		=> __( 'Open in new window', $this->textdomain ),
+			'current'	=> __( 'Open in current window', $this->textdomain )
+		); 
+
+		$_templates = apply_filters( 'fes_templates', array(
+			'default'	=> __( 'Default', $this->textdomain )
+		)); 
+
 		// Merge the user-selected arguments with the defaults
-		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
+		$instance = wp_parse_args( (array) $instance, fes_default_arguments() ); 
+		
+		?>
 
 		<div class="pluginName">FeedBurner Email Subscription<span class="pluginVersion"><?php echo FEEDBURNER_EMAIL_SUBSCRIPTION_VERSION; ?></span></div>
 		<div id="cp-<?php echo $this->id ; ?>" class="totalControls tabbable tabs-left">
@@ -245,8 +216,8 @@ class Feedburner_Email_Subscription extends WP_Widget {
 					<ul>			
 						<li>
 							<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', $this->textdomain ); ?></label>					
-							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 							<span class="controlDesc"><?php _e('Give the widget a title, leave empty for no title.', $this->textdomain ); ?></span>
+							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />							
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id( 'feed_title' ); ?>"><?php _e( 'Your FeedBurner Title', $this->textdomain ); ?></label>
@@ -255,13 +226,13 @@ class Feedburner_Email_Subscription extends WP_Widget {
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Input Text', $this->textdomain ); ?></label>					
-							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>" value="<?php echo esc_attr( $instance['text'] ); ?>" />
 							<span class="controlDesc"><?php _e('The email input text.', $this->textdomain ); ?></span>
+							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>" value="<?php echo esc_attr( $instance['text'] ); ?>" />							
 						</li>
 						<li>
-							<label for="<?php echo $this->get_field_id( 'submit' ); ?>"><?php _e( 'Submit Button Text', $this->textdomain ); ?></label>					
-							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'submit' ); ?>" name="<?php echo $this->get_field_name( 'submit' ); ?>" value="<?php echo esc_attr( $instance['submit'] ); ?>" />
-							<span class="controlDesc"><?php _e('The form submit button text.', $this->textdomain ); ?></span>
+							<label for="<?php echo $this->get_field_id( 'submit' ); ?>"><?php _e( 'Submit Button Text', $this->textdomain ); ?></label>			
+							<span class="controlDesc"><?php _e('The form submit button text.', $this->textdomain ); ?></span>							
+							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'submit' ); ?>" name="<?php echo $this->get_field_name( 'submit' ); ?>" value="<?php echo esc_attr( $instance['submit'] ); ?>" />							
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id( 'posts_feed_link' ); ?>">
@@ -277,20 +248,22 @@ class Feedburner_Email_Subscription extends WP_Widget {
 					<ul>
 						<li>
 							<label for="<?php echo $this->get_field_id( 'template' ); ?>"><?php _e( 'Template', $this->textdomain ); ?></label>		
-							<span class="controlDesc"><?php _e( 'Template used to construct each tweet. Please see available template tag from the default.', $this->textdomain ); ?></span>						
-							<select class="smallfat" onchange="wpWidgets.save(jQuery(this).closest('div.widget'),0,1,0);" id="<?php echo $this->get_field_id( 'template' ); ?>" name="<?php echo $this->get_field_name( 'template' ); ?>">
-								<?php
-									if ( $handle = opendir( FEEDBURNER_EMAIL_SUBSCRIPTION_DIR . 'templates/' ) ) {
-										while ( false !== ($entry = readdir($handle))) {
-											if ( $entry != "." && $entry != ".." && ! is_file($entry) ) {
-												echo '<option value="' . $entry . '" '. selected( $instance['template'], $entry ) . '>' . esc_html( $entry ) . '</option>';
-											}
-										}
-										closedir($handle);
-									}
-								?>
+							<span class="controlDesc"><?php _e( 'The subscription form template. Some templates may override this widget settings.', $this->textdomain ); ?></span>						
+							<select id="<?php echo $this->get_field_id( 'template' ); ?>" name="<?php echo $this->get_field_name( 'template' ); ?>">
+								<?php foreach ( $_templates as $k => $val ) { ?>
+									<option value="<?php echo $k; ?>" <?php selected( $instance['template'], $k ); ?>><?php echo $val; ?></option>
+								<?php } ?>
 							</select>
-						</li>
+						</li>						
+						<li>
+							<label for="<?php echo $this->get_field_id( 'form_open' ); ?>"><?php _e( 'Form Open', $this->textdomain); ?></label>
+							<span class="controlDesc"><?php _e( 'Select the form open methode while submitting.', $this->textdomain ); ?></span>
+							<select id="<?php echo $this->get_field_id( 'form_open' ); ?>" name="<?php echo $this->get_field_name( 'form_open' ); ?>">
+								<?php foreach ( $_form_open as $k => $val ) { ?>
+									<option value="<?php echo $k; ?>" <?php selected( $instance['form_open'], $k ); ?>><?php echo $val; ?></option>
+								<?php } ?>
+							</select>
+						</li>						
 						<li>
 							<label for="<?php echo $this->get_field_id( 'remove_css' ); ?>">
 							<input class="checkbox" type="checkbox" <?php checked( $instance['remove_css'], true ); ?> id="<?php echo $this->get_field_id( 'remove_css' ); ?>" name="<?php echo $this->get_field_name( 'remove_css' ); ?>" />&nbsp;<?php _e( 'Remove plugin CSS?', $this->textdomain ); ?></label>
@@ -307,12 +280,12 @@ class Feedburner_Email_Subscription extends WP_Widget {
 						<li>
 							<label for="<?php echo $this->get_field_id( 'intro_text' ); ?>"><?php _e('Intro Text', $this->textdomain ) ?></label>
 							<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
-							<textarea name="<?php echo $this->get_field_name( 'intro_text' ); ?>" id="<?php echo $this->get_field_id( 'intro_text' ); ?>" rows="3" class="widefat"><?php echo htmlentities($instance['intro_text']); ?></textarea>							
+							<textarea name="<?php echo $this->get_field_name( 'intro_text' ); ?>" id="<?php echo $this->get_field_id( 'intro_text' ); ?>" rows="2" class="widefat"><?php echo htmlentities($instance['intro_text']); ?></textarea>							
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id( 'outro_text' ); ?>"><?php _e('Outro Text', $this->textdomain ) ?></label>
 							<span class="controlDesc"><?php _e('This field support shortcodes and HTML.', $this->textdomain ); ?></span>
-							<textarea name="<?php echo $this->get_field_name( 'outro_text' ); ?>" id="<?php echo $this->get_field_id( 'outro_text' ); ?>" rows="3" class="widefat"><?php echo htmlentities($instance['outro_text']); ?></textarea>							
+							<textarea name="<?php echo $this->get_field_name( 'outro_text' ); ?>" id="<?php echo $this->get_field_id( 'outro_text' ); ?>" rows="2" class="widefat"><?php echo htmlentities($instance['outro_text']); ?></textarea>							
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id('customstylescript'); ?>"><?php _e( 'Custom Script & Stylesheet', $this->textdomain ) ; ?></label>
@@ -358,7 +331,7 @@ class Feedburner_Email_Subscription extends WP_Widget {
 		</div>
 		<script type='text/javascript'>
 			jQuery(document).ready(function($){
-				$(document).on("click", ".fes-2", function(){
+				$(document).on( "click", ".fes-3", function(){
 					$(this).fesLoadUtility();
 				});	
 			});
