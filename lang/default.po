@@ -1,0 +1,119 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Feedburner Email Subscription\n"
+"POT-Creation-Date: 2015-04-05 09:58+0700\n"
+"PO-Revision-Date: 2015-04-05 09:58+0700\n"
+"Last-Translator: Selz <engineer@selz.com>\n"
+"Language-Team: Zourbuth <zourbuth@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: E:\\xampp\\htdocs\\area51\\wp-content\\plugins"
+"\\feedburner-email-subscription\n"
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:218
+msgid "Title"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:219
+msgid "Give the widget a title, leave empty for no title."
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:223
+msgid "Your FeedBurner Title"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:225
+msgid ""
+"Example: <tt>zourbuth</tt> for <a target=\"_blank\" href=\"http://feeds."
+"feedburner.com/zourbuth\">http://feeds.feedburner.com/zourbuth</a> feed "
+"address."
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:228
+msgid "Input Text"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:229
+msgid "The email input text."
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:233
+msgid "Submit Button Text"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:234
+msgid "The form submit button text."
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:239
+msgid "Display posts feed link"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:243
+msgid "Display comments feed link"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:250
+msgid "Template"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:251
+msgid ""
+"The subscription form template. Some templates may override this widget "
+"settings."
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:259
+msgid "Form Open"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:260
+msgid "Select the form open methode while submitting."
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:269
+msgid "Remove plugin CSS?"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:273
+msgid "Use Twitter Bootstrap 3?"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:281
+msgid "Intro Text"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:282
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:287
+msgid "This field support shortcodes and HTML."
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:286
+msgid "Outro Text"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:291
+msgid "Custom Script & Stylesheet"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:292
+msgid ""
+"Use this box for additional widget CSS style of custom javascript. This "
+"widget selector is: "
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:310
+msgid "Like my work? Please consider to "
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:310
+msgid "donate"
+msgstr ""
+
+#: E:\xampp\htdocs\area51\wp-content\plugins\feedburner-email-subscription/widget.php:318
+msgid "Help us to share this plugin."
+msgstr ""
