@@ -220,9 +220,10 @@ class Feedburner_Email_Subscription extends WP_Widget {
 							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />							
 						</li>
 						<li>
-							<label for="<?php echo $this->get_field_id( 'feed_title' ); ?>"><?php _e( 'Your FeedBurner Title', $this->textdomain ); ?></label>
-							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'feed_title' ); ?>" name="<?php echo $this->get_field_name( 'feed_title' ); ?>" value="<?php echo esc_attr( $instance['feed_title'] ); ?>" />
-							<span class="controlDesc"><?php _e('Example: <tt>zourbuth</tt> for <a target="_blank" href="http://feeds.feedburner.com/zourbuth">http://feeds.feedburner.com/zourbuth</a> feed address.', $this->textdomain ); ?></span>
+							<label for="<?php echo $this->get_field_id( 'feed_title' ); ?>"><?php _e( 'Feed Address', $this->textdomain ); ?></label>
+							<span class="controlDesc"><?php _e('Copy and paste your Feedburner feed here.', $this->textdomain ); ?></span>
+							<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'feed_title' ); ?>" name="<?php echo $this->get_field_name( 'feed_title' ); ?>" value="<?php echo esc_attr( $instance['feed_title'] ); ?>" />							
+							<span class="controlDesc"><?php _e('Example: <strong>zourbuth</strong> for <a target="_blank" href="http://feeds.feedburner.com/zourbuth">http://feeds.feedburner.com/zourbuth</a> feed address.', $this->textdomain ); ?></span>
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Input Text', $this->textdomain ); ?></label>					

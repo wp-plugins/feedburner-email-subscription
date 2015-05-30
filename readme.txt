@@ -3,10 +3,10 @@ Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
 Tags: subscription, subscriber, widget, email, feedburner, feed, shortcode, rss, newsletter, mailer
 Requires at least: 3.6
-Tested up to: 4.1.1
-Stable tag: 1.3.3
+Tested up to: 4.2
+Stable tag: 1.3.4
 
-Give your biggest fans another way to keep up with your content feed by placing an feedburner email subscription on your site.
+Give your biggest fans another way to keep up with your content feed by placing a free feedburner email subscription on your site.
 
 == Description ==
 
@@ -65,6 +65,8 @@ Please read the FAQ or ask a new feature at <a href="http://www.ground6.com/word
 3. Example of feedburner.com settings
 
 == Changelog ==
+= 1.3.4 =
+* Update widget string
 = 1.3.3 =
 * Plugin slug and text domain defined
 * Form open window option while submitting added
